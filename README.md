@@ -9,8 +9,6 @@ Run the setup-alpine script
 
 ## Setup Environment to Build ISO
 
-Create a build user and clone this repo in the new home dir
-
 ```bash
 adduser build -G abuild
 
