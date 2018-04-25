@@ -151,8 +151,6 @@ $(INITFS_DIRSTAMP):
 			> $(INITFS_DIR)/etc/mdev.conf; \
 	fi
 	@touch $@
-	@gem install rspec --no-ri --no-rdoc
-	@gem install facter --no-ri --no-rdoc
 
 $(INITFS): $(INITFS_DIRSTAMP) $(MODLOOP_DIRSTAMP)
 	@mkinitfs -F "$(INITFS_FEATURES)" -t $(INITFS_TMP) \
