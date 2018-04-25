@@ -27,4 +27,4 @@ Verify a ppc64le iso exists in the same dir you ran the script in.
 More info:
 
 https://wiki.alpinelinux.org/wiki/How_to_make_a_custom_ISO_image
-
+https://github.com/alpinelinux/alpine-iso
