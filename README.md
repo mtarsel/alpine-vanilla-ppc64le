@@ -20,6 +20,12 @@ Hit Enter when asked about where to store your public key.
 
 Verify a ppc64le iso exists in ~/iso 
 
+## Debug
+Read the output from build command and look for build dir in /tmp
+
+
 More info:
 
 https://wiki.alpinelinux.org/wiki/How_to_make_a_custom_ISO_image_with_mkimage
+
+https://github.com/mtarsel/aports/blob/master/scripts/genapkovl-razor.sh
