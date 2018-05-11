@@ -1,0 +1,5 @@
+to install: gem install --local /root/alpine-vanilla-ppc64le/razor-alpine-ppc64le-mk/pkg/razor-mk-agent-*.gem --no-document
+to install: gem install --local /root/alpine-vanilla-ppc64le/razor-alpine-ppc64le-mk/pkg/razor-mk-agent-*.gem --no-document
+to install: gem install --local /root/alpine-vanilla-ppc64le/razor-alpine-ppc64le-mk/pkg/razor-mk-agent-*.gem --no-document
+to install: gem install --local /root/alpine-vanilla-ppc64le/razor-alpine-ppc64le-mk/pkg/razor-mk-agent-*.gem --no-document
+to install: gem install --local /root/alpine-vanilla-ppc64le/razor-alpine-ppc64le-mk/pkg/razor-mk-agent-*.gem --no-document
