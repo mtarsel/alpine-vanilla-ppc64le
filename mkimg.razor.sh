@@ -2,7 +2,6 @@ profile_razor() {
 	title="Razor"
 	desc="Standard build with Ruby Facter
 		Network connection is required."
-	profile_standard
 	image_ext="iso"
 	arch="x86 x86_64 ppc64le"
 	output_format="iso"
