@@ -3,6 +3,7 @@ profile_razor() {
 	desc="Standard build with Ruby Facter
 		Network connection is required."
 	image_ext="iso"
+	profile_base
 	arch="x86 x86_64 ppc64le"
 	output_format="iso"
 	kernel_cmdline="nomodeset"
