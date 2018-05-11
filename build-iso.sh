@@ -4,6 +4,8 @@
 
 apk add ruby alpine-sdk build-base apk-tools alpine-conf busybox fakeroot syslinux xorriso ruby git
 
+gem install facter rake bundler --no-document
+
 adduser build -G abuild
 abuild-keygen -i -a
 cp /root/.abuild/root-*.rsa.pub /etc/apk/keys
