@@ -6,8 +6,10 @@
 echo >  /etc/apk/repositories
 
 # add just what we want
-echo "http://dl-5.alpinelinux.org/alpine/v3.7/main" >> /etc/apk/repositories
-echo "http://dl-5.alpinelinux.org/alpine/v3.7/community" >> /etc/apk/repositories
+echo "http://dl-cdn.alpinelinux.org/alpine/v3.7/main" >> /etc/apk/repositories
+echo "http://dl-cdn.alpinelinux.org/alpine/v3.7/community" >> /etc/apk/repositories
+
+apk update
 
 apk add ruby alpine-sdk build-base apk-tools alpine-conf busybox fakeroot syslinux xorriso ruby git
 
@@ -33,6 +35,7 @@ git clone https://github.com/mtarsel/aports.git
 cd aports/scripts
 mkdir gems
 gem install facter --no-document -i ./gems
+cp ../../razor-alpine-ppc64le-mk/pkg/*.gem ./gems
 
 mkdir ~/iso
 
