@@ -29,4 +29,4 @@ gem install facter --no-document -i ./gems
 
 mkdir ~/iso
 
-sh mkimage.sh --tag main --outdir ~/iso --arch ppc64le --repository http://dl-cdn.alpinelinux.org/alpine/edge/main --profile razor
+sh mkimage.sh --tag main --outdir ~/iso --arch ppc64le --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main --profile razor
