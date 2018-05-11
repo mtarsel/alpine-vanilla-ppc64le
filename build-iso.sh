@@ -30,9 +30,9 @@ bundle exec rake build
 
 mkdir /etc/my-gems
 
+#all gems for .iso in /etc/my-gems
 cp ./pkg/*.gem /etc/my-gems
-
-#echo 'to install: gem install --local '$(pwd)'/pkg/razor-mk-agent-*.gem --no-document' >> ../command.txt
+gem install facter --no-document -i /etc/my-gems
 
 cd ../
 
@@ -41,8 +41,6 @@ cp genapkovl-razor.sh ./aports/scripts
 cp mkimg.razor.sh ./aports/scripts 
 
 cd aports/scripts
-mkdir gems
-gem install facter --no-document -i ./etc/my-gems
 
 mkdir ~/iso
 

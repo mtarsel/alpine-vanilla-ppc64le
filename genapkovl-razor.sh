@@ -61,7 +61,7 @@ EOF
 mkdir -p "$tmp"/etc/gems
 cp /etc/my-gems/*.gem "$tmp"/etc/gems
 
-cp /etc/my-gems/cache/*.gem "$tmp"/etc
+cp /etc/my-gems/cache/*.gem "$tmp"/etc/gems
 
 mkdir -p "$tmp"/etc/profile.d/                                
 makefile root:root 0755 "$tmp"/etc/profile.d/rubski.sh <<EOF  
