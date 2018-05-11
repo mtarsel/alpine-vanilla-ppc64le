@@ -59,10 +59,9 @@ net-tools
 EOF
 
 mkdir -p "$tmp"/etc/gems
-cp /root/alpine-vanilla-ppc64le/aports/scripts/gems/*.gem "$tmp"/etc
-/gems
+cp /etc/my-gems/*.gem "$tmp"/etc/gems
 
-cp /root/alpine-vanilla-ppc64le/aports/scripts/gems/cache/*.gem "$tmp"/etc
+cp /etc/my-gems/cache/*.gem "$tmp"/etc
 
 mkdir -p "$tmp"/etc/profile.d/                                
 makefile root:root 0755 "$tmp"/etc/profile.d/rubski.sh <<EOF  

@@ -28,6 +28,10 @@ cd razor-alpine-ppc64le-mk/
 bundle install
 bundle exec rake build
 
+mkdir /etc/my-gems
+
+cp ./pkg/*.gem /etc/my-gems
+
 #echo 'to install: gem install --local '$(pwd)'/pkg/razor-mk-agent-*.gem --no-document' >> ../command.txt
 
 cd ../
@@ -38,8 +42,7 @@ cp mkimg.razor.sh ./aports/scripts
 
 cd aports/scripts
 mkdir gems
-gem install facter --no-document -i ./gems
-cp ../../razor-alpine-ppc64le-mk/pkg/*.gem ./gems
+gem install facter --no-document -i ./etc/my-gems
 
 mkdir ~/iso
 
