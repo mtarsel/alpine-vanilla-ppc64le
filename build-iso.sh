@@ -11,7 +11,7 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.7/community" >> /etc/apk/repositor
 
 apk update
 
-apk add ruby alpine-sdk build-base apk-tools alpine-conf busybox fakeroot syslinux xorriso ruby git xtables-addons
+apk add ruby alpine-sdk build-base apk-tools alpine-conf busybox fakeroot xorriso ruby git
 
 gem install facter rake bundler --no-document
 
