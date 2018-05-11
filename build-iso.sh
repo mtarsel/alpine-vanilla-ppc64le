@@ -2,7 +2,7 @@
 #Written by Mick Tarsel
 #setup the env to build a ppc64le vanilla iso
 
-apk add ruby alpine-sdk build-base apk-tools alpine-conf busybox fakeroot syslinux xorriso
+apk add ruby alpine-sdk build-base apk-tools alpine-conf busybox fakeroot syslinux xorriso ruby git
 adduser build -G abuild
 abuild-keygen -i -a
 cp /root/.abuild/root-*.rsa.pub /etc/apk/keys
