@@ -16,6 +16,7 @@ apk add ruby alpine-sdk build-base apk-tools alpine-conf busybox fakeroot syslin
 gem install facter rake bundler --no-document
 
 adduser build -G abuild
+addgroup root abuild
 abuild-keygen -i -a
 cp /root/.abuild/root-*.rsa.pub /etc/apk/keys
 cp /root/.abuild/root-*.rsa.pub /etc/apk/keys.pub
@@ -32,8 +33,8 @@ bundle exec rake build
 cd ../
 
 git clone https://github.com/alpinelinux/aports.git
-mv genapkovl-razor.sh ./aports/scripts 
-mv mkimg.razor.sh ./aports/scripts 
+cp genapkovl-razor.sh ./aports/scripts 
+cp mkimg.razor.sh ./aports/scripts 
 
 cd aports/scripts
 mkdir gems
