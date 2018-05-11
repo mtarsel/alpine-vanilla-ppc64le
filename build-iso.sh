@@ -26,11 +26,14 @@ git clone https://github.com/puppetlabs/razor-alpine-ppc64le-mk.git
 cd razor-alpine-ppc64le-mk/
 bundle install
 bundle exec rake build
-echo 'to install: gem install --local '$(pwd)'/pkg/razor-mk-agent-*.gem --no-document' >> ../command.txt
+
+#echo 'to install: gem install --local '$(pwd)'/pkg/razor-mk-agent-*.gem --no-document' >> ../command.txt
 
 cd ../
 
-git clone https://github.com/mtarsel/aports.git
+git clone https://github.com/alpinelinux/aports.git
+mv genapkovl-razor.sh ./aports/scripts 
+mv mkimg.razor.sh ./aports/scripts 
 
 cd aports/scripts
 mkdir gems
