@@ -30,11 +30,21 @@ cd razor-alpine-ppc64le-mk/
 bundle install
 bundle exec rake build
 
-mkdir /etc/my-gems
+#all files included in apkovl will be in /etc/apker on build machine
+mkdir -p /etc/apker/my-gems
+mkdir -p /etc/apker/my-gems/facter
 
-#all gems for .iso in /etc/my-gems
-cp ./pkg/*.gem /etc/my-gems
-gem install facter --no-document -i /etc/my-gems
+gem install facter --no-document -i /etc/apker/my-gems/facter
+
+#all gems for .iso in /etc/apker/my-gems
+cp /etc/apker/my-gems/facter/cache/*.gem /etc/apker/my-gems
+rm -rf /etc/apker/my-gems/facter
+
+cp ./pkg/*.gem /etc/apker/my-gems
+cp ./etc/mk /etc/apker
+
+cp ./bin/mk-register /etc/apker
+cp ./bin/mk-update /etc/apker
 
 cd ../
 
