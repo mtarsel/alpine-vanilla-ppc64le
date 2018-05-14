@@ -58,10 +58,14 @@ ruby-bundler
 net-tools
 EOF
 
+#/etc/apker exists on build machine
+#/etc/gems and /etc/razor will be on machine we want to get info for
 mkdir -p "$tmp"/etc/gems
 cp /etc/apker/my-gems/*.gem "$tmp"/etc/gems
 
-cp /etc/apker/my-gems/cache/*.gem "$tmp"/etc/gems
+#/etc/razor contains scripts to start service
+mkdir -p "$tmp"/etc/razor
+cp /etc/apker/mk* "$tmp"/etc/razor
 
 mkdir -p "$tmp"/etc/profile.d/                                
 makefile root:root 0755 "$tmp"/etc/profile.d/rubski.sh <<EOF  
@@ -71,12 +75,15 @@ echo "Installing local gems from /etc/gems ..."
 
 /usr/bin/gem install --local /etc/gems/*.gem --no-document
 
+echo "Gems installed. Starting Razor service...."
+
+chmod +x /etc/razor/mk
+chmod +x /etc/razor/mk-register
+chmod +x /etc/razor/mk-update
+
+mv /etc/razor/mk-* /usr/local/bin
+
 EOF
-
-cp /etc/apker/mk "$tmp"/etc
-
-mkdir -p "$tmp"/usr/local/bin
-cp /etc/apker/mk-* "$tmp"/usr/local/bin/
 
 rc_add devfs sysinit
 rc_add dmesg sysinit
