@@ -3,13 +3,17 @@ Build Alpine Linux iso for ppc64le
 
 # How to Run
 
+This repo contains a shell script which will eventually build an Alpine Vanilla iso. The script will pull other git repos, build gems, and place all the files in the apkovl.tar.gz
+
 ## Install Alpine Vanilla on ppc64le
 
-Run the setup-alpine script 
+Run the setup-alpine script and ensure network connectivity 
 
 ## Setup Environment to Build ISO
 
 ```bash
+apk add git
+
 git clone https://github.com/mtarsel/alpine-vanilla-ppc64le.git
 
 cd alpine-vanilla-ppc64le
