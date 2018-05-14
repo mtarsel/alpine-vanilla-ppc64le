@@ -42,7 +42,6 @@ rm -rf /etc/apker/my-gems/facter
 
 cp ./pkg/*.gem /etc/apker/my-gems
 cp ./etc/mk /etc/apker
-
 cp ./bin/mk-register /etc/apker
 cp ./bin/mk-update /etc/apker
 

@@ -59,9 +59,9 @@ net-tools
 EOF
 
 mkdir -p "$tmp"/etc/gems
-cp /etc/my-gems/*.gem "$tmp"/etc/gems
+cp /etc/apker/my-gems/*.gem "$tmp"/etc/gems
 
-cp /etc/my-gems/cache/*.gem "$tmp"/etc/gems
+cp /etc/apker/my-gems/cache/*.gem "$tmp"/etc/gems
 
 mkdir -p "$tmp"/etc/profile.d/                                
 makefile root:root 0755 "$tmp"/etc/profile.d/rubski.sh <<EOF  
@@ -72,6 +72,11 @@ echo "Installing local gems from /etc/gems ..."
 /usr/bin/gem install --local /etc/gems/*.gem --no-document
 
 EOF
+
+cp /etc/apker/mk "$tmp"/etc
+
+mkdir -p "$tmp"/usr/local/bin
+cp /etc/apker/mk-* "$tmp"/usr/local/bin/
 
 rc_add devfs sysinit
 rc_add dmesg sysinit
