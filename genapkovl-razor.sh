@@ -84,6 +84,41 @@ mv /etc/razor/mk.rb /usr/local/bin/mk
 
 EOF
 
+mkdir -p "$tmp"/etc/init.d/                                
+makefile root:root 0755 "$tmp"/etc/init.d/mk <<EOF
+#!/sbin/openrc-run
+
+name=$RC_SVCNAME
+description="Interact with Razor server"
+
+depend() {
+    need net
+    use dns logger
+}
+
+start_pre() {
+    sleep 30
+}
+
+start() {
+    ebegin "Starting mk"
+    start-stop-daemon \
+    --background --start \
+    --exec /usr/local/bin/mk-update \
+    --make-pidfile --pidfile /var/run/mk.pid
+    eend $?
+}
+
+stop() {
+    ebegin "Stoping mk"
+    start-stop-daemon --stop \
+    --exec /usr/local/bin/mk-update \
+    --pidfile /var/run/mk.pid
+    eend $?
+}
+
+EOF
+
 rc_add devfs sysinit
 rc_add dmesg sysinit
 rc_add mdev sysinit
@@ -98,7 +133,7 @@ rc_add bootmisc boot
 rc_add syslog boot
 rc_add networking boot
 
-#TODO create service file in this script rc_add mk default
+rc_add mk default
 
 rc_add mount-ro shutdown
 rc_add killprocs shutdown
