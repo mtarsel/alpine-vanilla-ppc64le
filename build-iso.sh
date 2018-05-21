@@ -44,6 +44,7 @@ cp ./pkg/*.gem /etc/apker/my-gems
 cp ./etc/mk /etc/apker
 cp ./bin/mk-register /etc/apker
 cp ./bin/mk-update /etc/apker
+cp ./bin/mk /etc/apker/mk.rb
 
 cd ../
 

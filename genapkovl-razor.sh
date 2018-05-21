@@ -77,11 +77,10 @@ echo "Installing local gems from /etc/gems ..."
 
 echo "Gems installed. Starting Razor service...."
 
-chmod +x /etc/razor/mk
-chmod +x /etc/razor/mk-register
-chmod +x /etc/razor/mk-update
+chmod -R 755 /etc/razor/
 
 mv /etc/razor/mk-* /usr/local/bin
+mv /etc/razor/mk.rb /usr/local/bin/mk
 
 EOF
 
@@ -97,8 +96,9 @@ rc_add sysctl boot
 rc_add hostname boot
 rc_add bootmisc boot
 rc_add syslog boot
-
 rc_add networking boot
+
+#TODO create service file in this script rc_add mk default
 
 rc_add mount-ro shutdown
 rc_add killprocs shutdown
