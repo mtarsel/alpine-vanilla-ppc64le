@@ -94,7 +94,7 @@ start() {
     ebegin "Starting mk"
     start-stop-daemon \
     --background --start \
-    --exec /usr/local/bin/mk-update \
+    --exec /usr/local/bin/mk-register \
     --make-pidfile --pidfile /var/run/mk.pid
     eend $?
 }
@@ -102,7 +102,7 @@ start() {
 stop() {
     ebegin "Stoping mk"
     start-stop-daemon --stop \
-    --exec /usr/local/bin/mk-update \
+    --exec /usr/local/bin/mk-register \
     --pidfile /var/run/mk.pid
     eend $?
 }

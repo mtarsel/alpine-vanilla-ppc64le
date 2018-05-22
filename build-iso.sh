@@ -1,6 +1,6 @@
 #!/bin/sh
 #Written by Mick Tarsel
-#setup the env to build a ppc64le vanilla iso
+#setup the env to build a ppc64le vanilla iso for razor
 
 #clear it
 echo >  /etc/apk/repositories
