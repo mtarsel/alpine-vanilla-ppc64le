@@ -20,18 +20,19 @@ gem install facter rake bundler --no-document
 adduser build -G abuild
 addgroup root abuild
 abuild-keygen -i -a
+
 #TODO some stat errors 
 cp /root/.abuild/root-*.rsa.pub /etc/apk/keys
 cp /root/.abuild/root-*.rsa.pub /etc/apk/keys.pub
 apk update
 
-#Written by Jeremy Adams
+
 git clone https://github.com/puppetlabs/razor-alpine-ppc64le-mk.git
 cd razor-alpine-ppc64le-mk/
 bundle install
 bundle exec rake build
 
-#TODO rename to razr-build 
+#TODO rename to razr-build
 #all files included in apkovl will be in /etc/apker on build machine
 mkdir -p /etc/apker/my-gems
 mkdir -p /etc/apker/my-gems/facter
@@ -51,8 +52,8 @@ cp ./bin/mk /etc/apker/mk.rb
 cd ../
 
 git clone https://github.com/alpinelinux/aports.git
-cp genapkovl-razor.sh ./aports/scripts 
-cp mkimg.razor.sh ./aports/scripts 
+cp genapkovl-razor.sh ./aports/scripts
+cp mkimg.razor.sh ./aports/scripts
 
 cd aports/scripts
 
