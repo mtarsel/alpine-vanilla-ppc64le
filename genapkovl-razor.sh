@@ -68,7 +68,7 @@ cp /etc/apker/my-gems/*.gem "$tmp"/etc/gems
 mkdir -p "$tmp"/etc/razor
 cp /etc/apker/mk* "$tmp"/etc/razor
 
-mkdir -p "$tmp"/etc/init.d/                                
+mkdir -p "$tmp"/etc/init.d/
 makefile root:root 0755 "$tmp"/etc/init.d/mk <<EOF
 #!/sbin/openrc-run
 
@@ -83,12 +83,11 @@ depend() {
 start_pre() {
     sleep 30
     if [ ! -f /usr/local/bin/mk ]; then
-	/usr/bin/gem install --local /etc/gems/*.gem --no-document
 	mkdir -p /usr/local/bin
+	/usr/bin/gem install --local /etc/gems/*.gem --no-document -n /usr/local/bin
 	mv /etc/razor/mk-* /usr/local/bin
-	mv /etc/razor/mk.rb /usr/local/bin/mk
 	chmod +x /usr/local/bin/mk*
-    fi	
+    fi
 }
 
 start() {

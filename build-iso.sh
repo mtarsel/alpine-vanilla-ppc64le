@@ -13,7 +13,7 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.7/community" >> /etc/apk/repositor
 
 apk update
 
-apk add ruby alpine-sdk build-base apk-tools alpine-conf busybox fakeroot xorriso ruby git
+apk add ruby alpine-sdk build-base apk-tools alpine-conf busybox fakeroot xorriso git
 
 gem install facter rake bundler --no-document
 
@@ -21,7 +21,7 @@ adduser build -G abuild
 addgroup root abuild
 abuild-keygen -i -a
 
-#TODO some stat errors 
+#TODO some stat errors
 cp /root/.abuild/root-*.rsa.pub /etc/apk/keys
 cp /root/.abuild/root-*.rsa.pub /etc/apk/keys.pub
 apk update
