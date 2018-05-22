@@ -71,6 +71,7 @@ cp /etc/apker/mk* "$tmp"/etc/razor
 #makefile root:root 0755 "$tmp"/etc/profile.d/rubski.sh <<EOF  
 # #!/bin/sh
 #echo "Installing local gems from /etc/gems ..."
+#TODO
 #/usr/bin/gem install --local /etc/gems/*.gem --no-document
 #echo "Gems installed. Starting Razor service...."
 #chmod -R 755 /etc/razor/
@@ -91,7 +92,6 @@ depend() {
 }
 
 start_pre() {
-    /usr/bin/gem install --local /etc/gems/*.gem --no-document
     sleep 30
     if [ ! -f /usr/local/bin/mk ]; then
 	mkdir -p /usr/local/bin

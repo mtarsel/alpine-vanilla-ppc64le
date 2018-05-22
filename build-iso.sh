@@ -30,6 +30,7 @@ cd razor-alpine-ppc64le-mk/
 bundle install
 bundle exec rake build
 
+#TODO rename to razr-build 
 #all files included in apkovl will be in /etc/apker on build machine
 mkdir -p /etc/apker/my-gems
 mkdir -p /etc/apker/my-gems/facter
@@ -41,7 +42,7 @@ cp /etc/apker/my-gems/facter/cache/*.gem /etc/apker/my-gems
 rm -rf /etc/apker/my-gems/facter
 
 cp ./pkg/*.gem /etc/apker/my-gems
-cp ./etc/mk /etc/apker
+cp ./etc/mk /etc/apker #created from genapkovl, this is just a backup
 cp ./bin/mk-register /etc/apker
 cp ./bin/mk-update /etc/apker
 cp ./bin/mk /etc/apker/mk.rb
@@ -54,6 +55,6 @@ cp mkimg.razor.sh ./aports/scripts
 
 cd aports/scripts
 
-mkdir ~/iso
+mkdir -p ~/iso
 
 sh mkimage.sh --tag main --outdir ~/iso --arch ppc64le --repository http://dl-cdn.alpinelinux.org/alpine/edge/main --profile razor
