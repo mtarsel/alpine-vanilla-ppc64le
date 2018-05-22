@@ -58,6 +58,7 @@ ruby-bundler
 net-tools
 EOF
 
+#TODO change name of this to razor-build
 #/etc/apker exists on build machine
 #/etc/gems and /etc/razor will be on machine we want to get info for
 mkdir -p "$tmp"/etc/gems
@@ -66,14 +67,6 @@ cp /etc/apker/my-gems/*.gem "$tmp"/etc/gems
 #/etc/razor contains scripts to start service
 mkdir -p "$tmp"/etc/razor
 cp /etc/apker/mk* "$tmp"/etc/razor
-
-#TODO
-#/usr/bin/gem install --local /etc/gems/*.gem --no-document
-#echo "Gems installed. Starting Razor service...."
-#chmod -R 755 /etc/razor/
-#mv /etc/razor/mk-* /usr/local/bin
-#mv /etc/razor/mk.rb /usr/local/bin/mk
-#EOF
 
 mkdir -p "$tmp"/etc/init.d/                                
 makefile root:root 0755 "$tmp"/etc/init.d/mk <<EOF
@@ -90,7 +83,7 @@ depend() {
 start_pre() {
     sleep 30
     if [ ! -f /usr/local/bin/mk ]; then
-	#/usr/bin/gem install --local /etc/gems/*.gem --no-document
+	/usr/bin/gem install --local /etc/gems/*.gem --no-document
 	mkdir -p /usr/local/bin
 	mv /etc/razor/mk-* /usr/local/bin
 	mv /etc/razor/mk.rb /usr/local/bin/mk
