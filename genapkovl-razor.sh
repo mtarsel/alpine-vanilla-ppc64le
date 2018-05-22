@@ -67,10 +67,6 @@ cp /etc/apker/my-gems/*.gem "$tmp"/etc/gems
 mkdir -p "$tmp"/etc/razor
 cp /etc/apker/mk* "$tmp"/etc/razor
 
-#mkdir -p "$tmp"/etc/profile.d/                                
-#makefile root:root 0755 "$tmp"/etc/profile.d/rubski.sh <<EOF  
-# #!/bin/sh
-#echo "Installing local gems from /etc/gems ..."
 #TODO
 #/usr/bin/gem install --local /etc/gems/*.gem --no-document
 #echo "Gems installed. Starting Razor service...."
@@ -83,7 +79,7 @@ mkdir -p "$tmp"/etc/init.d/
 makefile root:root 0755 "$tmp"/etc/init.d/mk <<EOF
 #!/sbin/openrc-run
 
-name=$RC_SVCNAME
+name="razormk"
 description="Interact with Razor server"
 
 depend() {
@@ -94,6 +90,7 @@ depend() {
 start_pre() {
     sleep 30
     if [ ! -f /usr/local/bin/mk ]; then
+	#/usr/bin/gem install --local /etc/gems/*.gem --no-document
 	mkdir -p /usr/local/bin
 	mv /etc/razor/mk-* /usr/local/bin
 	mv /etc/razor/mk.rb /usr/local/bin/mk
