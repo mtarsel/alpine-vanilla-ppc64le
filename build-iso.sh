@@ -20,6 +20,7 @@ gem install facter rake bundler --no-document
 adduser build -G abuild
 addgroup root abuild
 abuild-keygen -i -a
+#TODO some stat errors 
 cp /root/.abuild/root-*.rsa.pub /etc/apk/keys
 cp /root/.abuild/root-*.rsa.pub /etc/apk/keys.pub
 apk update
